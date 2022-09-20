@@ -19,12 +19,10 @@ function capitalize() {
     for (let i = 0; i < words.length; i++) {
         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
     }
-    output.innerHTML = words[0];
-    
+    output.innerHTML = words.join(" ");
 }
 
 function cpytxt() {
-    let cpytxt = txtarea;
     // Select the text field
     txtarea.select();
     txtarea.setSelectionRange(0, 99999); // For mobile devices
