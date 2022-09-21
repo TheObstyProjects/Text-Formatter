@@ -1,35 +1,36 @@
-const txtarea = document.getElementById('txtarea');
-const output = document.getElementById('output');
-
-function input() {
-    output.innerHTML = txtarea.value;
-}
-
 function upper() {
-    output.innerHTML = txtarea.value.toUpperCase();
+    document.getElementById('txtarea').value = txtarea.value.toUpperCase();
 }
 
 function lower() {
-    output.innerHTML = txtarea.value.toLowerCase();
+    document.getElementById('txtarea').value = txtarea.value.toLowerCase();
 }
 
 function capitalize() {
-    const words = txtarea.value.split(" ");
+    const words = document.getElementById('txtarea').value.split(" ");
     
     for (let i = 0; i < words.length; i++) {
         words[i] = words[i][0].toUpperCase() + words[i].substr(1);
     }
-    output.innerHTML = words.join(" ");
+    document.getElementById('txtarea').value = words.join(" ");
 }
 
 function cpytxt() {
     // Select the text field
+    let txtarea = document.getElementById('txtarea');
     txtarea.select();
-    txtarea.setSelectionRange(0, 99999); // For mobile devices
-  
+    
      // Copy the text inside the text field
-    navigator.clipboard.writeText(txtarea.value);
-  
-    // Alert the copied text
-    alert("Copied the text: " + txtarea.value);
-}
+    // navigator.clipboard.writeText(txtarea.value);
+    showAlert("Text changed to Uppercase!");
+};
+
+function showAlert(alrmsg) {
+    console.log(alrmsg);
+    document.getElementById('alert').value = alrmsg;
+    document.getElementById('alert').style.display = 'block';
+    
+    setTimeout(()=> {
+        document.getElementById('alert').style.display = 'none';
+    },1000);
+};
